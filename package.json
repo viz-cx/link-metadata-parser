@@ -1,0 +1,31 @@
+{
+  "name": "link-metadata-parser",
+  "version": "1.0.0",
+  "description": "Parse link metadata",
+  "main": "src/index.js",
+  "scripts": {
+    "server": "node example/server.js",
+    "develop": "nodemon --watch src --watch example/server.js example/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "link",
+    "metadata",
+    "parser"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/viz-cx/link-metadata-parser.git"
+  },
+  "author": "Vladimir Babin",
+  "license": "MIT",
+  "dependencies": {
+    "chardet": "^1.1.0",
+    "iconv-lite": "^0.6.0",
+    "sharp": "^0.25.3",
+    "url-metadata": "^2.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
