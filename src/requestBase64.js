@@ -18,11 +18,6 @@ module.exports = function requestBase64(url, maxWidth = 0) {
         if (err) return reject(err);
         var binary = Buffer.from(body, "binary");
         var sharped = sharp(binary);
-        const contentType = res.headers["content-type"];
-        const resolveResult = function (buffer, type) {
-          const data = "data:" + type + ";base64," + buffer.toString("base64");
-          resolve(data);
-        };
         sharped
           .metadata()
           .then(function (metadata) {
@@ -33,10 +28,14 @@ module.exports = function requestBase64(url, maxWidth = 0) {
             return result.png().toBuffer();
           })
           .then(
-            (buf) => resolveResult(buf, "image/png"),
+            (buffer) => {
+              const type = "image/png";
+              const data = "data:" + type + ";base64," + buffer.toString("base64");
+              resolve(data);
+            },
             (error) => {
-              console.log("Sharp error", error);
-              resolveResult(binary, contentType);
+              console.log("Sharp error:", error);
+              reject(new Error("Failed to convert to png"));
             }
           );
       }

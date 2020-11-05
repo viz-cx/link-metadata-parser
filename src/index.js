@@ -66,8 +66,12 @@ module.exports = function linkMetadata(url, options = {}) {
         };
         meta = removeEmptyProperties(meta, true);
         if (true === mergedOptions.encodeImage && imageUrl !== undefined) {
+          if (!imageUrl) {
+            imageUrl = url;
+          }
           requestBase64(imageUrl, mergedOptions.maxImageWidth).then(
             (base64) => {
+              meta["image"]["url"] = imageUrl;
               meta["image"]["data"] = base64;
               resolve(meta);
             },
