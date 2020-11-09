@@ -26,6 +26,13 @@
     "url-metadata": "^2.4.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "semantic-release": "^17.2.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "branches": [
+      "master"
+    ]
   }
 }
