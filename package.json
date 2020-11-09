@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node example/server.js",
     "develop": "nodemon --watch src --watch example/server.js example/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter list"
   },
   "keywords": [
     "link",
@@ -26,6 +26,7 @@
     "url-metadata": "^2.4.0"
   },
   "devDependencies": {
+    "mocha": "^8.2.1",
     "nodemon": "^2.0.4",
     "semantic-release": "^17.2.2"
   },
