@@ -35,6 +35,11 @@ class HttpServer {
 
     const { method, url } = req;
 
+    if (method.toLowerCase() === "options") {
+      res.statusCode = 204;
+      return;
+    }
+
     if (method.toLowerCase() !== "get") {
       res.statusCode = 405;
       res.end(JSON.stringify({ success: 0, message: "Method Not Allowed" }));
