@@ -37,6 +37,7 @@ class HttpServer {
 
     if (method.toLowerCase() === "options") {
       res.statusCode = 204;
+      res.end();
       return;
     }
 
