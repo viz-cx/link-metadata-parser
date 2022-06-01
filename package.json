@@ -22,7 +22,7 @@
   "dependencies": {
     "chardet": "^1.1.0",
     "iconv-lite": "^0.6.0",
-    "sharp": "^0.25.3",
+    "sharp": "^0.30.5",
     "url-metadata": "^2.4.0"
   },
   "devDependencies": {
